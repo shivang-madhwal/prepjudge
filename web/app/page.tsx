@@ -1,0 +1,1 @@
+export default function Home(){return <main><p>PrepJudge · Foundation</p><h1>Practice with understanding.</h1><p>The platform foundation is ready. Problem browsing and the editor arrive in the next milestone.</p><p>Code execution is not enabled.</p><a href="/api/health">View web health</a></main>}
