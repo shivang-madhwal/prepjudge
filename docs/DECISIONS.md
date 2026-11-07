@@ -9,3 +9,5 @@
 - Web uses Next.js App Router and TypeScript. Monaco and Playwright dependencies are deferred until M1 browser behaviors require them.
 - The lint command runs Next.js ESLint rules and TypeScript validation.
 - Runtime versions are dependency-managed and locked where supported; public deployment is deferred to M8 and requires fresh vulnerability review.
+
+- Testcontainers' managed Docker client default was rejected by the installed Docker daemon. Test-only docker-java.properties selects API 1.44, which the daemon supports; both integration suites then passed.
