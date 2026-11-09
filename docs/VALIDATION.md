@@ -22,3 +22,10 @@
 - Browser interaction, auth, domain APIs, submission execution, sandbox attacks, and deployment are not covered in M0.
 - Docker client API 1.44 is selected in test resources for compatibility with the installed Docker daemon; this affects tests only.
 - No paid services were provisioned. Docker Desktop was started for integration tests; temporary Testcontainers resources are cleaned up automatically.
+
+# M1 validation
+- API `./mvnw -B -ntp verify`: five tests passed, including real Postgres migration, combined filters, pagination, invalid values, unknown problems, and sample-only detail serialization.
+- Web lint, three unit tests, and production build passed. Monaco assets bundle successfully.
+- Local Postgres/Redis and API/web servers started for interactive review.
+- Browser: selected Pair indices, inspected examples, loaded Monaco, typed a draft, switched to Java starter, switched back and observed the saved Python draft.
+- Fixtures were authored and inspected against the stated contracts; adversarial judging and independent external content review remain future checks. The first pre-implementation test run was blocked by Docker connectivity; no claim of an observed endpoint-related red run is made.

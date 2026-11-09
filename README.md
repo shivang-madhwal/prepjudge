@@ -27,3 +27,14 @@ Java integration tests start isolated Postgres/Redis containers with Testcontain
 M0 never runs submitted code. The eventual runner must remain private until M3 hardening tests pass. Docker alone does not eliminate kernel escape risk. Domain features, auth, judging, and public hosting are future milestones.
 
 On Homebrew macOS, if the Maven wrapper cannot locate Java, export `JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home`.
+
+## M1: problems and editor
+The local web app now browses ten original problems with difficulty/pattern filters and pagination. Select a problem to see its constraints, two sample cases, and Monaco editor. Python, Java, and C++ starter templates use a JSON stdin/stdout contract. Drafts are saved separately by problem and language in browser storage. Code execution remains disabled until M2.
+
+The web server proxies `/backend/api/v1/*` to the loopback API. Set `API_ORIGIN` before starting/building Next.js if your API uses a different address. Hidden fixtures are stored in Postgres and excluded from public responses.
+
+New endpoints:
+- `GET /api/v1/problems?page=0&size=5&difficulty=EASY&tag=hash-map`
+- `GET /api/v1/problems/pair-indices`
+
+Pagination is zero-based, size 1–100. Difficulties are uppercase; tags are lowercase hyphenated strings. Invalid inputs return a consistent JSON error and HTTP 400; missing slugs return 404.
