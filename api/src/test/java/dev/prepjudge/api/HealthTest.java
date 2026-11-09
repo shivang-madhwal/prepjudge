@@ -19,5 +19,5 @@ class HealthTest {
  @DynamicPropertySource static void properties(DynamicPropertyRegistry r) {r.add("spring.data.redis.host", redis::getHost);r.add("spring.data.redis.port", () -> redis.getMappedPort(6379));}
  @Autowired TestRestTemplate http;
  @Autowired org.springframework.jdbc.core.JdbcTemplate jdbc;
- @Test void reportsHealthyDependencies() {var response=http.getForEntity("/actuator/health",String.class);assertThat(response.getStatusCode().value()).isEqualTo(200);assertThat(response.getBody()).contains("UP");assertThat(jdbc.queryForObject("select count(*) from flyway_schema_history where success = true", Integer.class)).isEqualTo(1);}
+ @Test void reportsHealthyDependencies() {var response=http.getForEntity("/actuator/health",String.class);assertThat(response.getStatusCode().value()).isEqualTo(200);assertThat(response.getBody()).contains("UP");assertThat(jdbc.queryForObject("select count(*) from flyway_schema_history where success = true", Integer.class)).isEqualTo(2);}
 }
